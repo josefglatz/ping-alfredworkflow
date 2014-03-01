@@ -72,9 +72,11 @@
 $host = "{query}";
 $host = preg_replace("#.*(h|t[^\tht]*)(:|/)/?/#i",'',$host); //added by Piet Nutbey
 $ping = new Ping($host);
-$latency = $ping-&gt;ping();
+$latency = $ping->ping();
+$ip = gethostbyname($host); //added by Piet Nutbey
 if ($latency) {
-  print 'Latency is ' . $latency . ' ms';
+  print 'Latency is ' . $latency . ' ms' . PHP_EOL;
+print 'Ip address is: ' . $ip . ''; //added by Piet Nutbey
 }
 else {
   print '{query} could not be reached.';
